@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6811d42cc81210b3be179a640e72bedf",
+    "content-hash": "cbc25ad4126561c5b6c3970212c39031",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -5867,6 +5867,50 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "zohocrm/php-sdk-2.0",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zoho/zohocrm-php-sdk-2.0.git",
+                "reference": "1d181440bc657775c791894d0cc14106d2390b51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zoho/zohocrm-php-sdk-2.0/zipball/1d181440bc657775c791894d0cc14106d2390b51",
+                "reference": "1d181440bc657775c791894d0cc14106d2390b51",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=5.7"
+            },
+            "type": "sdk",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Zoho CRM API Team",
+                    "email": "support@zohocrm.com",
+                    "homepage": "https://www.zoho.com/crm/help/customer-support.html",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Zoho CRM API SDK for PHP",
+            "homepage": "https://github.com/zoho/zohocrm-php-sdk-2.0",
+            "support": {
+                "source": "https://github.com/zoho/zohocrm-php-sdk-2.0/tree/4.0.0"
+            },
+            "time": "2021-09-02T11:51:41+00:00"
         }
     ],
     "packages-dev": [

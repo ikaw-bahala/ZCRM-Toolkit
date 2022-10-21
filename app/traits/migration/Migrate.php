@@ -16,7 +16,6 @@ trait Migrate
     public function startMigration($self, $module): void
     {
         $path = $this->getCSV($module);
-        $this->info($path);
         // $rows is an instance of Illuminate\Support\LazyCollection
         $rows = SimpleExcelReader::create($path,  'csv')
             ->headersToSnakeCase()
