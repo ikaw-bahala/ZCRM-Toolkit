@@ -3,8 +3,6 @@
 namespace App\traits\migration;
 
 use App\traits\crm\hasCRMConfig;
-use League\Csv\ByteSequence;
-use League\Csv\Reader;
 
 trait Migrate
 {
