@@ -1,6 +1,6 @@
 <?php
 
-namespace App\traits;
+namespace App\traits\migration;
 
 trait hasMigrationMenu
 {
