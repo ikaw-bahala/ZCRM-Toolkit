@@ -1,0 +1,17 @@
+[
+    {
+        "crm_field_name": "FirstName",
+        "data_type":  "string",
+        "csv_column": "Firstname"
+    },
+    {
+        "crm_field_name": "Email",
+        "data_type":  "string",
+        "csv_column": "Email"
+    },
+    {
+        "crm_field_name": "LastName",
+        "data_type":  "string",
+        "csv_column": "lastname"
+    }
+]

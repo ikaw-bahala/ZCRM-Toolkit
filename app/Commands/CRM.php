@@ -40,15 +40,21 @@ class CRM extends Command
     {
         $selected_module = $this->MigrationMenu($this);
         if($selected_module === null) exit(1);
+        if($selected_module === 'lead')
+        {
+            // initial validation of the CSV file.
+            $this->getCSV('Leads');
+            // Ask confirmation to proceed
+            $proceed = $this->areYouSure($this, 'Continue and start migration. proceed?');
+            if($proceed !== 'yes')
+            {
+                $this->info('Migration Cancelled by user');
+                exit(1);
+            }
+            // start migration
+            $this->startMigration($this,'Leads');
+        }
 
-        $csvfile = $this->getCSV('Leads');
-        // Ask confirmation to proceed
-        $proceed = $this->areYouSure($this, 'Continue and start migration. proceed?');
-
-        // start migration
-        $this->startMigration('Leads');
-
-        $this->info("You have chosen the text option: {$selected_module}");
     }
 
     /**
