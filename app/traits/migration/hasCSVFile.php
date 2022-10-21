@@ -9,14 +9,14 @@ trait hasCSVFile
 {
     private function checkDirectory($module): void
     {
-        if(!Storage::exists("migration/{$module}"))
+        if(!Storage::exists("storage/migration/{$module}"))
         {
-            Storage::makeDirectory("migration/{$module}");
+            Storage::makeDirectory("storage/migration/{$module}");
         }
     }
     private function CSVPath($module)
     {
-        if($module === "$module") return Storage::disk('local')->get("migration/{$module}/{$module}.csv");
+        if($module === "$module") return Storage::disk('local')->path("storage/migration/{$module}/{$module}.csv");
     }
 
     /**
@@ -36,8 +36,7 @@ trait hasCSVFile
 
     private function checkCSV($module): bool
     {
-        $this->checkDirectory("{$module}");
-        return Storage::disk('local')->exists("migration/{$module}/{$module}.csv");
+        return Storage::disk('local')->exists("storage/migration/{$module}/{$module}.csv");
     }
 
 }

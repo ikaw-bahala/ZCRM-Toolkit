@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Storage;
+
 return [
- "lead-field-mapping" => \Illuminate\Support\Facades\Storage::disk('local')->get('migration/Leads/field-mapping.json')
+ "lead-field-mapping" => 'migration/Leads/field-mapping.json'
 ];
