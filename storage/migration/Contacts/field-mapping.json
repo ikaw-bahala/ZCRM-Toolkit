@@ -18,7 +18,8 @@
         "crm_field_name": "Accounts",
         "data_type":  "lookup",
         "lookup": {
-            "search_field": "Account_Name"
+            "search_field": "Account_Name",
+            "parent_module": "Accounts"
         },
         "csv_column": "company"
     }
