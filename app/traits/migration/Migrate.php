@@ -2,11 +2,13 @@
 
 namespace App\traits\migration;
 
+use App\traits\crm\hasCRMConfig;
 use Spatie\SimpleExcel\SimpleExcelReader;
 
 trait Migrate
 {
     use hasCSVFile;
+    use hasCRMConfig;
 
     private array $data;
 
@@ -15,6 +17,8 @@ trait Migrate
      */
     public function startMigration($self, $module): void
     {
+        $this->ZCRMconfig();
+
         $path = $this->getCSV($module);
         // $rows is an instance of Illuminate\Support\LazyCollection
         $rows = SimpleExcelReader::create($path,  'csv')
