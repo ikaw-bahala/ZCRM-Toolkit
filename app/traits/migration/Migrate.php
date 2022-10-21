@@ -3,7 +3,8 @@
 namespace App\traits\migration;
 
 use App\traits\crm\hasCRMConfig;
-use Spatie\SimpleExcel\SimpleExcelReader;
+use League\Csv\ByteSequence;
+use League\Csv\Reader;
 
 trait Migrate
 {
@@ -20,14 +21,9 @@ trait Migrate
         $this->ZCRMconfig();
 
         $path = $this->getCSV($module);
-        // $rows is an instance of Illuminate\Support\LazyCollection
-        $rows = SimpleExcelReader::create($path,  'csv')
-            ->headersToSnakeCase()
-            ->trimHeaderRow()
-            ->getRows();
-        $rows->each(function(array $rowProperties) {
-            dump($rowProperties);
-        });
+
+
+
 
     }
 
