@@ -27,8 +27,6 @@ trait Migrate
             ->getRows();
         $rows->each(function(array $rowProperties) {
             dump($rowProperties);
-            // in the first pass $rowProperties will contain
-            // ['email' => 'john@example.com', 'first_name' => 'john']
         });
 
     }
