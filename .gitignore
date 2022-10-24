@@ -6,3 +6,4 @@
 .env
 /storage/auth/php_sdk_token.txt
 /storage/auth/
+/storage/zcrm-php_sdk_log.log
