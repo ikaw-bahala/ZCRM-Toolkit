@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "945a1f3b6ce81bfde7303805a4c8d06c",
+    "content-hash": "49044673634c6bbb256f11eb97b515bb",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -5722,16 +5722,16 @@
         },
         {
             "name": "zohocrm/php-sdk-2.0",
-            "version": "4.0.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zoho/zohocrm-php-sdk-2.0.git",
-                "reference": "1d181440bc657775c791894d0cc14106d2390b51"
+                "reference": "7ff14faf113387b8be77e0141be610f61c869d99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoho/zohocrm-php-sdk-2.0/zipball/1d181440bc657775c791894d0cc14106d2390b51",
-                "reference": "1d181440bc657775c791894d0cc14106d2390b51",
+                "url": "https://api.github.com/repos/zoho/zohocrm-php-sdk-2.0/zipball/7ff14faf113387b8be77e0141be610f61c869d99",
+                "reference": "7ff14faf113387b8be77e0141be610f61c869d99",
                 "shasum": ""
             },
             "require": {
@@ -5749,6 +5749,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
             "authors": [
                 {
                     "name": "Zoho CRM API Team",
@@ -5760,9 +5763,9 @@
             "description": "Zoho CRM API SDK for PHP",
             "homepage": "https://github.com/zoho/zohocrm-php-sdk-2.0",
             "support": {
-                "source": "https://github.com/zoho/zohocrm-php-sdk-2.0/tree/4.0.0"
+                "source": "https://github.com/zoho/zohocrm-php-sdk-2.0/tree/6.0.0"
             },
-            "time": "2021-09-02T11:51:41+00:00"
+            "time": "2022-08-24T06:29:43+00:00"
         }
     ],
     "packages-dev": [

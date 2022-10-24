@@ -51,6 +51,30 @@ class CRMSDK
                       "code" => 200,
                       "data" => $records
                     ];
+                }else if($responseHandler instanceof APIException)
+                {
+                    //Get the received APIException instance
+                    $exception = $responseHandler;
+
+                    //Get the Status
+                    echo("Status: " . $exception->getStatus()->getValue() . "\n");
+
+                    //Get the Code
+                    echo("Code: " . $exception->getCode()->getValue() . "\n");
+
+                    if($exception->getDetails() != null)
+                    {
+                        echo("Details: " );
+
+                        //Get the details map
+                        foreach($exception->getDetails() as $key => $value)
+                        {
+                            //Get each value in the map
+                            echo($key . " : " . $value . "\n");
+                        }
+                    }
+                    //Get the Message
+                    echo("Message: " . $exception->getMessage()->getValue() . "\n");
                 }
             }
         }
