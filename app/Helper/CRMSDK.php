@@ -2,18 +2,60 @@
 
 namespace App\Helper;
 use com\zoho\crm\api\exception\SDKException;
-use com\zoho\crm\api\HeaderMap;
 use com\zoho\crm\api\ParameterMap;
 use com\zoho\crm\api\record\APIException;
 use com\zoho\crm\api\record\ActionWrapper;
 use com\zoho\crm\api\record\RecordOperations;
 use com\zoho\crm\api\record\SuccessResponse;
 use com\zoho\crm\api\record\DeleteRecordParam;
-use com\zoho\crm\api\record\GetRecordHeader;
+use com\zoho\crm\api\record\ResponseWrapper;
 
 
 class CRMSDK
 {
+    /**
+     * Get Records
+     * This method is used to get all the records of a module and print the response.
+     * @param string $moduleAPIName
+     * @return array|void
+     */
+    public function getAllRecord(string $moduleAPIName)
+    {
+
+        //Get instance of RecordOperations Class that takes moduleAPIName as parameter
+        $recordOperations = new RecordOperations();
+        //Call getRecords method
+        $response = $recordOperations->getRecords($moduleAPIName);
+        if($response !== null) {
+            //Get the status code from response
+            echo("Status code " . $response->getStatusCode() . "\n");
+
+            if (in_array($response->getStatusCode(), array(204, 304))) {
+               return [
+                   "code"=> $response->getStatusCode(),
+                    "msg" => $response->getStatusCode() == 204 ? "No Content\n" : "Not Modified\n"
+                ];
+            }
+            if($response->isExpected())
+            {
+                //Get the object from response
+                $responseHandler = $response->getObject();
+
+                if($responseHandler instanceof ResponseWrapper) {
+                    //Get the received ResponseWrapper instance
+                    $responseWrapper = $responseHandler;
+
+                    //Get the obtained Record instances
+                    $records = $responseWrapper->getData();
+                    return [
+                      "code" => 200,
+                      "data" => $records
+                    ];
+                }
+            }
+        }
+
+    }
 
     /**
      * Delete Record

@@ -46,7 +46,12 @@ class CRMDelete extends Command
             if($input === 'Yes' || $input === 'Y' || $input === 'y')
             {
                 // delete all record
+                $data = (new CRMSDK)->getAllRecord($module);
+                dump($data);
 
+            }else{
+                $this->error('Action Cancelled by user');
+                exit(1);
             }
         }else{
             $this->ZCRMconfig();
@@ -70,7 +75,6 @@ class CRMDelete extends Command
                     }
                     sleep(5);
                 });
-                sleep(5);
                 $this->output->progressFinish();
                 $this->info('Processing Done!');
             }
