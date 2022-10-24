@@ -4,3 +4,5 @@
 /.vagrant
 .phpunit.result.cache
 .env
+/storage/auth/php_sdk_token.txt
+/storage/auth/

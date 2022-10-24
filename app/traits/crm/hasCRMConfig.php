@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Storage;
 
 trait hasCRMConfig
 {
+    /*
+     *  Scope
+     *
+     *  Aaaserver.profile.Read,ZohoCRM.modules.ALL,ZohoCRM.settings.ALL,ZohoCRM.users.ALL
+     *
+     *
+     */
+
     /**
      * @throws SDKException
      */

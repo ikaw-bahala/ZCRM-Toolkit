@@ -9,7 +9,7 @@ use App\traits\migration\Migrate;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
-class CRM extends Command
+class CRMMigration extends Command
 {
     use hasMigrationMenu;
     use hasCSVFile;
