@@ -60,9 +60,18 @@ class CRMDelete extends Command
                 $ids->each(function($value, $key) use ($module,) {
                     $this->output->progressAdvance();
                     $resp = (new CRMSDK)->deleteRecord($module, $value);
-                    dump($resp);
+                    $resp = collect($resp);
+                    if($resp->get('code') == 'SUCCESS')
+                    {
+                        $this->newLine(2);
+                        $this->info($resp->get('msg'));
+                    }else{
+                        dump($resp);
+                    }
                 });
+                sleep(5);
                 $this->output->progressFinish();
+                $this->info('Processing Done!');
             }
         }
     }

@@ -66,6 +66,12 @@ trait hasCRMConfig
          * File Persistence - Create an instance of FileStore
          * Custom Persistence - Create an instance of CustomStore
         */
+        // check if existing or not, then create if not existing
+
+        if(!Storage::disk('local')->exists("auth/php_sdk_token.txt"))
+        {
+           Storage::disk('local')->put('auth/php_sdk_token.txt', '');
+        }
 
         $tokenstore = new FileStore(Storage::disk('local')->path('auth/php_sdk_token.txt'));
 

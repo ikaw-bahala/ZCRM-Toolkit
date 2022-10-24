@@ -27,22 +27,13 @@ class CRMSDK
     {
         //Get instance of RecordOperations Class
         $recordOperations = new RecordOperations();
-
         //Get instance of ParameterMap Class
         $paramInstance = new ParameterMap();
-
-        $paramInstance->add(DeleteRecordParam::wfTrigger(), false);
-
-        $headerInstance = new HeaderMap();
-
-        $headerInstance->add(GetRecordHeader::XEXTERNAL(), "Leads.External");
+        $paramInstance->add(DeleteRecordParam::wfTrigger(), $wfTrigger);
 
         //Call deleteRecord method that takes paramInstance, ModuleAPIName and recordId as parameter.
-        $response = $recordOperations->deleteRecord($recordId, $moduleAPIName, $paramInstance, $headerInstance);
-        if ($response != null) {
-            //Get the status code from response
-            echo("Status Code: " . $response->getStatusCode() . "\n");
-
+        $response = $recordOperations->deleteRecord($recordId, $moduleAPIName, $paramInstance);
+        if ($response !== null) {
             if ($response->isExpected()) {
                 //Get object from response
                 $actionHandler = $response->getObject();
@@ -84,7 +75,10 @@ class CRMSDK
                     ];
                 }
             }
+        }else{
+            return [
+                'msg' => $response
+            ];
         }
     }
-
 }
