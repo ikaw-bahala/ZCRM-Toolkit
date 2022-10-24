@@ -66,6 +66,7 @@ trait hasCRMConfig
          * File Persistence - Create an instance of FileStore
          * Custom Persistence - Create an instance of CustomStore
         */
+
         $tokenstore = new FileStore(Storage::disk('local')->path('auth/php_sdk_token.txt'));
 
         $sdkConfig = (new SDKConfigBuilder())
