@@ -28,6 +28,10 @@ trait hasCRMConfig
      */
     public function ZCRMconfig()
     {
+        if(!Storage::disk('local')->exists("zcrm-php_sdk_log.log"))
+        {
+            Storage::disk('local')->put('zcrm-php_sdk_log.log', '');
+        }
         $logger = (new LogBuilder())
             ->Level(Levels::INFO)
             ->filePath(Storage::disk('local')->path('zcrm-php_sdk_log.log'))
