@@ -1,0 +1,26 @@
+[2022-11-11 17:49:46] development.INFO: test [{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]}] 
+[2022-11-11 17:53:58] development.ERROR: Undefined property: App\Commands\CRMMigration::$data {"exception":"[object] (ErrorException(code: 0): Undefined property: App\\Commands\\CRMMigration::$data at /home/unhex/self_project/ZCRM-Toolkit/app/traits/migration/Migrate.php:55)
+[stacktrace]
+#0 /home/unhex/self_project/ZCRM-Toolkit/vendor/laravel-zero/foundation/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/unhex/self_project/ZCRM-Toolkit/app/traits/migration/Migrate.php(55): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
+#2 /home/unhex/self_project/ZCRM-Toolkit/app/Commands/CRMMigration.php(55): App\\Commands\\CRMMigration->startMigration()
+#3 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/container/BoundMethod.php(36): App\\Commands\\CRMMigration->handle()
+#4 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#5 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#6 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/container/BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#7 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/container/Container.php(651): Illuminate\\Container\\BoundMethod::call()
+#8 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/console/Command.php(178): Illuminate\\Container\\Container->call()
+#9 /home/unhex/self_project/ZCRM-Toolkit/vendor/symfony/console/Command/Command.php(308): Illuminate\\Console\\Command->execute()
+#10 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/console/Command.php(148): Symfony\\Component\\Console\\Command\\Command->run()
+#11 /home/unhex/self_project/ZCRM-Toolkit/vendor/symfony/console/Application.php(1014): Illuminate\\Console\\Command->run()
+#12 /home/unhex/self_project/ZCRM-Toolkit/vendor/symfony/console/Application.php(301): Symfony\\Component\\Console\\Application->doRunCommand()
+#13 /home/unhex/self_project/ZCRM-Toolkit/vendor/symfony/console/Application.php(171): Symfony\\Component\\Console\\Application->doRun()
+#14 /home/unhex/self_project/ZCRM-Toolkit/vendor/illuminate/console/Application.php(111): Symfony\\Component\\Console\\Application->run()
+#15 /home/unhex/self_project/ZCRM-Toolkit/vendor/laravel-zero/foundation/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#16 /home/unhex/self_project/ZCRM-Toolkit/vendor/laravel-zero/framework/src/Kernel.php(96): Illuminate\\Foundation\\Console\\Kernel->handle()
+#17 /home/unhex/self_project/ZCRM-Toolkit/zcrm(37): LaravelZero\\Framework\\Kernel->handle()
+#18 {main}
+"} 
+[2022-11-11 17:54:18] development.INFO: test  
+[2022-11-11 17:55:27] development.INFO: test  
+[2022-11-11 17:58:08] development.INFO: test [{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]},{"com\\zoho\\crm\\api\\record\\Record":[]}] 
