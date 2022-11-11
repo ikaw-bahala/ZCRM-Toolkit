@@ -13,6 +13,44 @@ use com\zoho\crm\api\record\ResponseWrapper;
 
 class CRMSDK
 {
+
+    public function getModuleRecordCount(string $moduleAPIName): int
+    {
+        //Get instance of RecordOperations Class that takes moduleAPIName as parameter
+        $recordOperations = new RecordOperations();
+        //Call getRecords method
+        $response = $recordOperations->getRecords($moduleAPIName);
+        if($response !== null) {
+            if (in_array($response->getStatusCode(), array(204, 304))) {
+                return 0;
+            }
+            if ($response->isExpected()) {
+                //Get the object from response
+                $responseHandler = $response->getObject();
+
+                if ($responseHandler instanceof ResponseWrapper) {
+                    //Get the received ResponseWrapper instance
+                    $responseWrapper = $responseHandler;
+
+                    //Get the obtained Record instances
+                    $records = $responseWrapper->getData();
+                    $record = collect($records);
+                    return $record->count();
+                } else if ($responseHandler instanceof APIException) {
+                    //Get the received APIException instance
+                    $exception = $responseHandler;
+
+                    //Get the Status
+                    echo("Status: " . $exception->getStatus()->getValue() . "\n");
+
+                    //Get the Code
+                    echo("Code: " . $exception->getCode()->getValue() . "\n");
+
+                    return 0;
+                }
+            }
+        }
+    }
     /**
      * Get Records
      * This method is used to get all the records of a module and print the response.
@@ -27,12 +65,9 @@ class CRMSDK
         //Call getRecords method
         $response = $recordOperations->getRecords($moduleAPIName);
         if($response !== null) {
-            //Get the status code from response
-            echo("Status code " . $response->getStatusCode() . "\n");
-
             if (in_array($response->getStatusCode(), array(204, 304))) {
-               return [
-                   "code"=> $response->getStatusCode(),
+                return [
+                    "code"=> $response->getStatusCode(),
                     "msg" => $response->getStatusCode() == 204 ? "No Content\n" : "Not Modified\n"
                 ];
             }
@@ -48,33 +83,25 @@ class CRMSDK
                     //Get the obtained Record instances
                     $records = $responseWrapper->getData();
                     return [
-                      "code" => 200,
-                      "data" => $records
+                        "code" => 200,
+                        "data" => $records
                     ];
                 }else if($responseHandler instanceof APIException)
                 {
                     //Get the received APIException instance
                     $exception = $responseHandler;
-
-                    //Get the Status
-                    echo("Status: " . $exception->getStatus()->getValue() . "\n");
-
-                    //Get the Code
-                    echo("Code: " . $exception->getCode()->getValue() . "\n");
-
                     if($exception->getDetails() != null)
                     {
-                        echo("Details: " );
-
-                        //Get the details map
-                        foreach($exception->getDetails() as $key => $value)
-                        {
-                            //Get each value in the map
-                            echo($key . " : " . $value . "\n");
-                        }
+                        return [
+                            "code" => 400,
+                            "data" =>   $exception->getDetails()
+                        ];
                     }
                     //Get the Message
-                    echo("Message: " . $exception->getMessage()->getValue() . "\n");
+                    return [
+                        "code" => 400,
+                        "data" =>   $exception->getMessage()->getValue()
+                    ];
                 }
             }
         }
