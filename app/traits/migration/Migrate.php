@@ -2,6 +2,7 @@
 
 namespace App\traits\migration;
 
+use App\Helper\CRMSDK;
 use App\traits\crm\hasCRMConfig;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,7 +22,7 @@ trait Migrate
 
         $path = $this->getCSV($module);
         $getFieldMappingData = (new MigrationFieldMapping($module))->check()->getFieldMapping();
-        dump($getFieldMappingData);
+        dump((new CRMSDK())->getModuleRecordCount('Leads'));
 
 
     }
