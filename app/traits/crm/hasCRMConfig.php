@@ -79,7 +79,7 @@ trait hasCRMConfig
            Storage::disk('local')->put(config('crm.token_path'), '');
         }
 
-        $tokenstore = new FileStore(config('crm.token_path'));
+        $tokenstore = new FileStore(Storage::disk('local')->path(config('crm.token_path')));
 
         $sdkConfig = (new SDKConfigBuilder())
             ->autoRefreshFields(false)
