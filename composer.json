@@ -19,6 +19,7 @@
         "php": "^8.0",
         "guzzlehttp/guzzle": "^7.4",
         "illuminate/http": "^9.0",
+        "illuminate/log": "^9.0",
         "laminas/laminas-text": "^2.9",
         "laravel-zero/framework": "^9.2",
         "nunomaduro/laravel-console-menu": "^3.2",

@@ -12,6 +12,6 @@
     {
         "crm_field_name": "LastName",
         "data_type":  "string",
-        "csv_column": "lastname"
+        "csv_column": "LastName"
     }
 ]
