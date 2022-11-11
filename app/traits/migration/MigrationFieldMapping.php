@@ -22,9 +22,9 @@ public function check(): \Exception|static
     return $this;
 }
 
-public function getFieldMapping(): ?string
+public function getFieldMapping(): ?array
 {
-    return Storage::disk('local')->get("migration/{$this->module}/field-mapping.json");
+    return json_decode(Storage::disk('local')->get("migration/{$this->module}/field-mapping.json"), true);
 }
 
 }
