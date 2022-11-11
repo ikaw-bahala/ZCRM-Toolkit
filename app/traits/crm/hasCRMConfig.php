@@ -28,22 +28,20 @@ trait hasCRMConfig
      */
     public function ZCRMconfig()
     {
-        if(!Storage::disk('local')->exists("zcrm-php_sdk_log.log"))
-        {
-            Storage::disk('local')->put('zcrm-php_sdk_log.log', '');
-        }
+
         $logger = (new LogBuilder())
             ->Level(Levels::INFO)
-            ->filePath(Storage::disk('local')->path('zcrm-php_sdk_log.log'))
+            ->filePath(config('crm.log_path'))
             ->build();
-        $user = new UserSignature(env('CRM_USER_SIGNATURE', null));
+
+        $user = new UserSignature(config('crm.user_signature'));
         /*
         * Configure the environment
         * which is of the pattern Domain::Environment
         * Available Domains: USDataCenter, EUDataCenter, INDataCenter, CNDataCenter, AUDataCenter
         * Available Environments: PRODUCTION(), DEVELOPER(), SANDBOX()
         */
-        $environment = USDataCenter::PRODUCTION();
+        $environment = config('crm.environment');
 
         /*
         * Create a Token instance that requires the following
@@ -59,10 +57,10 @@ trait hasCRMConfig
         // if refresh token is available
         // The SDK throws an exception, if the given id is invalid.
         $token = (new OAuthBuilder())
-            ->clientId(env('CRM_CLIENT_ID', null))
-            ->clientSecret(env('CRM_CLIENT_SECRET', null))
-            ->grantToken(env('CRM_GRANT_TOKEN', null))
-            ->redirectURL(env('CRM_REDIRECT_URL'))
+            ->clientId(config('crm.clientId'))
+            ->clientSecret(config('crm.clientSecret'))
+            ->grantToken(config('crm.grantToken'))
+            ->redirectURL(config('crm.redirectURL'))
             ->build();
         /*
          * TokenStore can be any of the following
@@ -77,7 +75,7 @@ trait hasCRMConfig
            Storage::disk('local')->put('auth/php_sdk_token.txt', '');
         }
 
-        $tokenstore = new FileStore(Storage::disk('local')->path('auth/php_sdk_token.txt'));
+        $tokenstore = new FileStore(config('crm.token_path'));
 
         $sdkConfig = (new SDKConfigBuilder())
             ->autoRefreshFields(false)
