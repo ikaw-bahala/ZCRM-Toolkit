@@ -22,7 +22,9 @@ trait Migrate
 
         $path = $this->getCSV($module);
         $getFieldMappingData = (new MigrationFieldMapping($module))->check()->getFieldMapping();
-        dump((new CRMSDK())->getModuleRecordCount('Leads'));
+        dump($getFieldMappingData);
+
+//        dump((new CRMSDK())->getModuleRecordCount('Leads'));
 
 
     }

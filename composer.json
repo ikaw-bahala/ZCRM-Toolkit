@@ -23,6 +23,7 @@
         "laravel-zero/framework": "^9.2",
         "nunomaduro/laravel-console-menu": "^3.2",
         "nunomaduro/termwind": "^1.14",
+        "spatie/simple-excel": "^2.4",
         "zohocrm/php-sdk-2.0": "6.0.0"
     },
     "require-dev": {
