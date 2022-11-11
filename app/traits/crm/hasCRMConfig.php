@@ -28,10 +28,14 @@ trait hasCRMConfig
      */
     public function ZCRMconfig()
     {
+        if(!Storage::disk('local')->exists(config('crm.log_path')))
+        {
+            Storage::disk('local')->put(config('crm.log_path'), '');
+        }
 
         $logger = (new LogBuilder())
             ->Level(Levels::INFO)
-            ->filePath(config('crm.log_path'))
+            ->filePath(Storage::disk('local')->path(config('crm.log_path')))
             ->build();
 
         $user = new UserSignature(config('crm.user_signature'));
@@ -70,9 +74,9 @@ trait hasCRMConfig
         */
         // check if existing or not, then create if not existing
 
-        if(!Storage::disk('local')->exists("auth/php_sdk_token.txt"))
+        if(!Storage::disk('local')->exists(config('crm.token_path')))
         {
-           Storage::disk('local')->put('auth/php_sdk_token.txt', '');
+           Storage::disk('local')->put(config('crm.token_path'), '');
         }
 
         $tokenstore = new FileStore(config('crm.token_path'));

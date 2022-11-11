@@ -4,9 +4,9 @@ use com\zoho\crm\api\dc\USDataCenter;
 use Illuminate\Support\Facades\Storage;
 
 return [
-    "log_path" => Storage::disk('local')->path('zcrm-php_sdk_log.log'),
+    "log_path" => 'zcrm-php_sdk_log.log',
     "user_signature" => env('CRM_USER_SIGNATURE', null),
-    "token_path" => Storage::disk('local')->path('auth/php_sdk_token.txt'),
+    "token_path" => 'auth/php_sdk_token.txt',
     /*
     * Configure the environment
     * which is of the pattern Domain::Environment
