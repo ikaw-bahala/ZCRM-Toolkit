@@ -46,6 +46,7 @@ class CRMDelete extends Command
             if($input === 'Yes' || $input === 'Y' || $input === 'y')
             {
                 // delete all record
+                $this->ZCRMconfig();
                 $data = (new CRMSDK)->getAllRecord($module);
                 dump($data);
 
